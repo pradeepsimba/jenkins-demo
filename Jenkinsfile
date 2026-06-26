@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -16,15 +15,17 @@ pipeline {
             }
         }
 
-        stage('Run Python') {
+        stage('Build') {
             steps {
-                sh 'python3 app.py'
+                sh 'echo "Hello from Jenkins!"'
+                sh 'date'
+                sh 'uname -a'
             }
         }
 
         stage('Success') {
             steps {
-                echo 'Build completed successfully!'
+                echo '🎉 Build completed successfully!'
             }
         }
     }
